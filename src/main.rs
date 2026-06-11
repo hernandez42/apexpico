@@ -64,6 +64,7 @@ struct EvolveConfig {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Default)]
 struct Config {
     #[serde(default)]
     pub llm: LlmConfig,
@@ -104,11 +105,6 @@ impl Default for ApexConfig {
 impl Default for EvolveConfig {
     fn default() -> Self {
         Self { threshold: default_threshold(), discovery: false }
-    }
-}
-impl Default for Config {
-    fn default() -> Self {
-        Self { llm: LlmConfig::default(), apex: ApexConfig::default(), evolve: EvolveConfig::default() }
     }
 }
 
@@ -359,19 +355,19 @@ fn main() {
 fn cmd_init() {
     let cfg_path = Config::path();
     if cfg_path.exists() {
-        print!("╔══════════════════════════════════════╗\n");
-        print!("║  配置已存在: {}  ║\n", cfg_path.display());
+        println!("╔══════════════════════════════════════╗");
+        println!("║  配置已存在: {}  ║", cfg_path.display());
         print!("║  回车跳过，n 重新配置... ");
         io::stdout().flush().ok();
         let mut input = String::new();
         io::stdin().read_line(&mut input).ok();
         if !input.trim().eq_ignore_ascii_case("n") {
-            print!("╚══════════════════════════════════════╝\n");
+            println!("╚══════════════════════════════════════╝");
             return;
         }
     }
 
-    print!("\n");
+    println!();
     println!("╔══════════════════════════════════════╗");
     println!("║     Apexclaw 配置向导                ║");
     println!("║  回车 = 使用括号内的默认值            ║");
@@ -561,9 +557,9 @@ fn evolve_self(cfg: &Config, model_override: Option<&str>, force: &bool) -> (i32
     let model = model_override.unwrap_or(&cfg.llm.model);
 
     out.push_str(&format!("║  LLM: {}", llm_url));
-    out.push_str("\n");
+    out.push('\n');
     out.push_str(&format!("║  Model: {}", model));
-    out.push_str("\n");
+    out.push('\n');
 
     // 用 curl 调用 LLM（路由器上自带 curl）
     let payload = json!({
