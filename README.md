@@ -1,4 +1,4 @@
-# Apexclaw
+# Apexpico
 
 **PicoClaw × APEX 端侧融合** — 路由器级自进化智能体。
 
@@ -12,20 +12,20 @@ PHI = **φ Score** = (base × ev × an × nv) / harm_rate
 ## 命令速查
 
 ```bash
-apexclaw init                          # 交互式配置向导（首次）
-apexclaw config show                   # 查看当前配置
-apexclaw config set llm.url <url>      # 设置 LLM 地址
-apexclaw config reset                  # 恢复默认
+apexpico init                          # 交互式配置向导（首次）
+apexpico config show                   # 查看当前配置
+apexpico config set llm.url <url>      # 设置 LLM 地址
+apexpico config reset                  # 恢复默认
 
-apexclaw score                         # 双公式融合评分
-apexclaw score --ev 0.9 --val 0.8      # 指定维度评分
+apexpico score                         # 双公式融合评分
+apexpico score --ev 0.9 --val 0.8      # 指定维度评分
 
-apexclaw signal phi                    # PHI_APEX 信号
-apexclaw signal omega                  # Ω_ASI 信号
+apexpico signal phi                    # PHI_APEX 信号
+apexpico signal omega                  # Ω_ASI 信号
 
-apexclaw status                        # 系统状态
-apexclaw evolve                        # 自进化
-apexclaw evolve --force                # 强制触发
+apexpico status                        # 系统状态
+apexpico evolve                        # 自进化
+apexpico evolve --force                # 强制触发
 ```
 
 ## 配置
@@ -37,13 +37,13 @@ apexclaw evolve --force                # 强制触发
 | `APEX_LLM_URL` | 覆盖 LLM API 地址 |
 | `APEX_SCORE_THR` | 覆盖自进化触发阈值 |
 
-配置文件路径：`~/.apexclaw/config.toml`
+配置文件路径：`~/.apexpico/config.toml`
 
 ## 编译
 
 ```bash
 cargo build --release
-# 单文件二进制: target/release/apexclaw (≈680KB)
+# 单文件二进制: target/release/apexpico (≈680KB)
 ```
 
 ## 端侧部署

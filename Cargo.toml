@@ -1,5 +1,5 @@
 [package]
-name = "apexclaw"
+name = "apexpico"
 version = "0.2.0"
 edition = "2021"
 description = "PicoClaw × APEX — edge self-evolving agent"
