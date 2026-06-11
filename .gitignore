@@ -1,0 +1,14 @@
+# Rust
+target/
+Cargo.lock
+
+# Editor
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode/
+.idea/
+
+# Config
+*.toml.bak
