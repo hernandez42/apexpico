@@ -12,3 +12,4 @@ Cargo.lock
 
 # Config
 *.toml.bak
+pr_body.json  
