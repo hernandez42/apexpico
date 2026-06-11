@@ -30,7 +30,7 @@ use std::{env, fs};
 
 // ─── 配置系统 ─────────────────────────────
 
-const CONFIG_DIR: &str = ".apexclaw";
+const CONFIG_DIR: &str = ".apexpico";
 const CONFIG_FILE: &str = "config.toml";
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -161,7 +161,7 @@ impl Config {
 // ─── CLI ─────────────────────────────────
 
 #[derive(Parser)]
-#[command(name = "apexclaw", version, about = "PicoClaw × APEX 端侧融合")]
+#[command(name = "apexpico", version, about = "PicoClaw × APEX 端侧融合")]
 struct Cli {
     #[command(subcommand)]
     cmd: Command,
